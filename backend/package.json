@@ -1,0 +1,32 @@
+{
+   "scripts": {
+      "start": "nodemon app.ts",
+      "start-server": "ts-node app.ts"
+   },
+   "dependencies": {
+      "bcrypt": "^5.0.1",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "express-validator": "^6.13.0",
+      "jsonwebtoken": "^8.5.1",
+      "multer": "^1.4.3",
+      "mysql2": "^2.3.0",
+      "nodemon": "^2.0.13",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.37"
+   },
+   "devDependencies": {
+      "@types/bcrypt": "^5.0.0",
+      "@types/cors": "^2.8.12",
+      "@types/dotenv": "^8.2.0",
+      "@types/express": "^4.17.13",
+      "@types/express-validator": "^3.0.0",
+      "@types/jsonwebtoken": "^8.5.5",
+      "@types/multer": "^1.4.7",
+      "@types/node": "^8.0.29",
+      "@types/nodemon": "^1.19.1",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   }
+}
