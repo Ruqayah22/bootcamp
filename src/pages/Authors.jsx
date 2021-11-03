@@ -5,7 +5,8 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Api } from "../axios";
+import DeleteDialog from "../components2/DeleteDialog";
+import { api } from "../axios";
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -13,17 +14,20 @@ import AuthorForm from "../components2/AuthorForm";
 // import {DateGrid} from"@mui/x-date/grid";
 import * as React from "react";
 import Paper from "@mui/material/Paper";
-import api from "../axios";
+// import {api} from "../axios";
 import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 // import DeleteIcon from "@mui/icons-material/Delete";
 
 const Authors = () => {
   const [authorFormDialogStatus, setAuthorFormDialogStatus] = useState(false);
   const [authorToEdit, setAuthorToEdit] = useState(undefined);
   const [authors, setAuthors] = useState([]);
+  const [authorToDeleteDialogStatus,setAuthorToDeleteDialogStatus]= useState(false);
+  const [authorToDeleteId,setAuthorToDeleteId] = useState(null);
 
   useEffect(() => {
-    Api.get("authors").then((res) => {
+    api.get("authors").then((res) => {
       console.log(res);
       setAuthors(res.data);
       console.log(Authors);
@@ -66,6 +70,13 @@ const Authors = () => {
                 >
                   <EditIcon />
                 </IconButton>
+                <IconButton 
+                onClick={() => {
+                  setAuthorToDeleteId(Author.id);
+                  setAuthorToDeleteDialogStatus(true);
+                }}>
+                  <DeleteIcon />
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}
@@ -91,6 +102,13 @@ const Authors = () => {
           }}
         />
       )}
+    <DeleteDialog
+    open={setAuthorToDeleteDialogStatus}
+    onCancel={() => {
+      console.log("delete");
+      console.log(setAuthorToDeleteId);
+    }}
+    />
     </div>
   );
 };
