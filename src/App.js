@@ -18,7 +18,7 @@ function App() {
       <Switch>
         <Route exact={true} path="/">
           <h1 style={{ fontSize: "5rem" }}>This is the default url</h1>
-          <br/>
+          <br />
           <button onClick={logout}>Log out</button>
         </Route>
         <Route path="/home">

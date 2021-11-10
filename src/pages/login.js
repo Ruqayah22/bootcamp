@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import { AuthContext } from "../context/userInfo";
-import { Api } from "../axios";
+import { api } from "../axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ const Login = () => {
       return;
     } else setError("");
 
-    Api.post("login", {
+    api.post("login", {
       email: email,
       password: password,
     }).then((res) => {
